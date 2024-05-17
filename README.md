@@ -7,8 +7,8 @@ Rendering the documentation as part of the CI pipeline ensures always up-to-date
 
 ## 💻 Usage
 
-This Github action can be imported into your own workflow via `uses` property: 
-`- uses: arduino/render-docs-github-action@main`
+This Github workflow can be imported into your own workflow via `uses` property: 
+`arduino/render-docs-github-action/.github/workflows/render-docs.yml`
 The minimal arguments that it needs are `source-path` and `target-path`.
 
 Here is a minimal workflow to render documentation in your own repository:
@@ -35,7 +35,20 @@ on:
       
 jobs:
   render-docs:
-    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    uses: arduino/render-docs-github-action/.github/workflows/render-docs.yml@main
+    with:
+      source-path: './src'
+      target-path: './docs/api.md'
+      commit: ${{ github.event_name != 'pull_request' }} # Only commit changes if not a PR
+```
+
+You can also run the tool as a Github action, rather than a reusable workflow:
+
+```yaml
+jobs:
+  render-docs:
     permissions:
       contents: write
 
@@ -45,7 +58,6 @@ jobs:
       with:
         source-path: './src'
         target-path: './docs/api.md'
-        commit: ${{ github.event_name != 'pull_request' }} # Only commit changes if not a PR
 ```
 
 Please note that this workflow only triggers when files are modified that match the given `paths:` pattern. This can be useful to avoid unnecessary workflow runs.
