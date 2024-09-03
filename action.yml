@@ -73,7 +73,7 @@ runs:
       npx render-docs \
         ${{ inputs.source-path }} \
         ${{ inputs.target-path }} \
-        ${{ inputs.exclude-pattern && format('--exclude {0}', inputs.exclude-pattern) || '' }} \
+        ${{ inputs.exclude-pattern && format('--exclude "{0}"', inputs.exclude-pattern) || '' }} \
         ${{ inputs.include-cpp == 'true' && '--include-cpp' || '' }} \
         ${{ inputs.show-access-modifiers == 'true' && '--show-access-modifiers' || '' }} \
         ${{ inputs.access-level && format('--access-level {0}', inputs.access-level) || '' }} \
