@@ -85,6 +85,6 @@ runs:
     uses: EndBug/add-and-commit@v9
     with:
       add: "${{ inputs.target-path }}"
-      author_name: "GitHub Action"
-      author_email: "action@github.com"
+      author_name: "github-actions[bot]"
+      author_email: "41898282+github-actions[bot]@users.noreply.github.com"
       message: "${{ inputs.commit-message }}"      
