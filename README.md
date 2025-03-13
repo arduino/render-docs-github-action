@@ -80,6 +80,8 @@ The workflow has a couple of inputs that allows to configure the behaviour:
 - `fail-on-warnings` The command prints documentation issues such as missing documentation. This option makes the action fail when such issues are found. This allows to achieve 100% documentation coverage.
 - `commit` Defines whether the rendered markdown files should be committed to the repository automatically.
 - `commit-message` Defines the commit message to be used when `commit` is set to true.
+- `committer-name` Username to use as the author of the commit. Defaults to "github-actions[bot]".
+- `committer-email` Email address to use as the author of the commit. Defaults to the email for "github-actions[bot]".
 - `debug` Enable this option to get additional output from the tool. This allows to debug in case you get unexpected output from the command.
 
 ## 🐛 Reporting Issues
