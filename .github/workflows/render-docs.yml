@@ -38,6 +38,14 @@ on:
         description: 'Commit message'
         default: 'Update documentation'
         type: string
+      committer-name:
+        description: 'Username to use as author of the commit.'
+        default: 'github-actions[bot]'
+        type: string
+      committer-email:
+        description: 'Email address to use as author of the commit.'
+        default: '41898282+github-actions[bot]@users.noreply.github.com'
+        type: string
       debug:
         description: 'Enable debugging mode to provide additional output'
         default: false
@@ -107,6 +115,6 @@ jobs:
       uses: EndBug/add-and-commit@v9
       with:
         add: "${{ inputs.target-path }}"
-        author_name: "GitHub Action"
-        author_email: "action@github.com"
+        author_name: "${{ inputs.committer-name }}"
+        author_email: "${{ inputs.committer-email }}"
         message: "${{ inputs.commit-message }}"      
