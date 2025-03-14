@@ -63,7 +63,7 @@ runs:
       
   - name: Install render-docs
     shell: bash
-    run: npm install github:arduino/render-docs --no-save
+    run: npm install github:arduino/render-docs#v1.0.0 --no-save
 
   - name: Cache Doxygen binaries
     id: cache-doxygen-binaries
